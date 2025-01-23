@@ -8,7 +8,76 @@
     
   <body>
     <script>
-    console.log("hello");
+
+    let humanScore = 0;
+    let computerScore = 0;
+    function getComputerChoice(){
+      let number = Math.floor(Math.random() * 3);
+      if (number == 0){
+        return "rock";
+      }
+      else if(number==1){
+        return "paper";
+      }
+      else {
+        return "scissors";
+      }
+    }
+    
+   // console.log(getComputerChoice());
+    
+    function getHumanChoice(){
+      let answer = prompt("Pick rock, paper or scissors: ");
+      return answer;
+    }
+    
+    //console.log(getHumanChoice());
+    
+    function playRound(humanChoice, computerChoice){
+    
+      let human = humanChoice.toLowerCase();
+      
+      if (human == "rock" && computerChoice == "scissors"){
+      console.log("You win! Rock beats scissors.");
+      humanScore++;
+      }
+      else if (human == "scissors" && computerChoice == "rock"){
+      console.log("You lose! Rock beats scissors.")
+      computerScore++;
+      }
+      
+      else if (human == "rock" && computerChoice == "paper"){
+      console.log("You lose! Paper beats rock.");
+      computerScore++;
+      }
+      
+      else if (human == "paper" && computerChoice == "rock"){
+      
+      console.log("You win! Paper beats rock.");
+      humanScore++;
+      } 
+      
+      else if (human == "paper" && computerChoice == "scissors"){
+      
+      console.log("You lose! Scissors beats paper.");
+      computerScore++;
+      }
+      else if (human == "scissors" && computerChoice == "paper"){
+        console.log("You win! Scissors beats paper.");
+        humanScore++;
+      }  
+      
+      else {
+       console.log(`It's a tie! Both chose ${human}.`);
+      }
+      
+    }
+    
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+    
     </script>
   </body>
 
